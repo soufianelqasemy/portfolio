@@ -23,7 +23,20 @@ export default function ExperienceCard({ experience, index }: ExperienceCardProp
             {experience.type}
           </span>
         </div>
-        <p className="text-foreground/80 mb-2">{experience.company}</p>
+        <p className="text-foreground/80 mb-2">
+          {experience.companyUrl ? (
+            <a 
+              href={experience.companyUrl} 
+              className="text-primary hover:underline" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              {experience.company}
+            </a>
+          ) : (
+            experience.company
+          )}
+        </p>
         <p className="text-muted-foreground mb-4">
           <span className="inline-block">{experience.location}</span> • <span className="date-format inline-block">{experience.period}</span>
         </p>

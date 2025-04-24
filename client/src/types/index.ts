@@ -21,6 +21,7 @@ export type Experience = {
   period: string;
   description: string;
   skills: string[];
+  companyUrl?: string;
 };
 
 // Project type

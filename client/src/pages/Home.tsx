@@ -270,11 +270,11 @@ export default function Home() {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section id="home" className="animated-bg h-screen flex items-center relative overflow-hidden">
+      <section id="home" className="animated-bg h-screen flex items-center relative overflow-hidden hero-section">
         <div className="absolute inset-0 overflow-hidden opacity-10">
           <div className="matrix-bg w-full h-full font-mono text-xs text-primary" ref={matrixRef}></div>
         </div>
-        <div className="container mx-auto px-4 z-10">
+        <div className="container mx-auto px-4 z-10 pt-20 md:pt-0">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <motion.h1 
