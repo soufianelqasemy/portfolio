@@ -65,44 +65,30 @@ export default function Home() {
   
   // Handle CV download
   const handleDownloadCV = () => {
-    // Create an anchor element
+    // Instead of using the complex dynamic import, let's use a direct URL
     const link = document.createElement('a');
     
-    // Set the download attribute with the filename
-    link.download = cvPdf.filename;
+    // Use direct path to the PDF
+    const pdfPath = '/attached_assets/SoufianeElQasemy CV.pdf';
     
-    // Set the href attribute to the CV path (this is a module import path)
-    // We need to use a dynamic import to get the actual URL
-    import(/* @vite-ignore */ cvPdf.path.replace('@assets/', '/attached_assets/'))
-      .then(module => {
-        // Create a blob URL from the module default export
-        const fileUrl = module.default;
-        
-        // Set the href to the blob URL
-        link.href = fileUrl;
-        
-        // Append to the document
-        document.body.appendChild(link);
-        
-        // Trigger the download
-        link.click();
-        
-        // Clean up
-        document.body.removeChild(link);
-        
-        toast({
-          title: "CV Downloaded",
-          description: "Thank you for your interest in my CV.",
-        });
-      })
-      .catch(error => {
-        console.error('Error downloading CV:', error);
-        toast({
-          variant: "destructive",
-          title: "Download Failed",
-          description: "There was an error downloading the CV. Please try again.",
-        });
-      });
+    // Set attributes
+    link.href = pdfPath;
+    link.download = 'SoufianeElQasemy-CV.pdf';
+    link.target = '_blank'; // Open in new tab if download doesn't start
+    
+    // Append to the document
+    document.body.appendChild(link);
+    
+    // Trigger the download
+    link.click();
+    
+    // Clean up
+    document.body.removeChild(link);
+    
+    toast({
+      title: "CV Downloaded",
+      description: "Thank you for your interest in my CV.",
+    });
   };
   
   // Handle form submission mutation
@@ -141,20 +127,20 @@ export default function Home() {
   // Education data
   const educationList = [
     {
-      degree: "Diplôme d'ingénieur en Sécurité et Confiance Numérique",
-      institution: "Ecole Nationale Supérieure de l'Intelligence Artificielle et Sciences des Données",
+      degree: "Engineering Degree in Digital Security and Trust",
+      institution: "National School of Artificial Intelligence and Data Science",
       location: "Taroudant",
       period: "Jan 2024 - Present"
     },
     {
-      degree: "Diplome universiatire de technologie - informatique",
-      institution: "Ecole supérieure de technologie",
+      degree: "University Technology Diploma - Computer Science",
+      institution: "Higher School of Technology",
       location: "Guelmim",
       period: "Sep 2021 - Jun 2023"
     },
     {
-      degree: "Baccalauréat Scientifique – Sciences Physiques option francais",
-      institution: "Lyceé Al Qods",
+      degree: "Scientific Baccalaureate - Physical Sciences (French option)",
+      institution: "Al Qods High School",
       location: "Tan-Tan",
       period: "Sep 2020 - Jul 2021"
     }
@@ -163,21 +149,21 @@ export default function Home() {
   // Experience data
   const experiences = [
     {
-      position: "Développeur d'Application Multiplateforme",
-      type: "Stage",
-      company: "Direction Régionale du Ministère de l'Éducation Nationale et de la Formation Professionnelle",
+      position: "Cross-Platform Application Developer",
+      type: "Internship",
+      company: "Regional Directorate of the Ministry of National Education",
       location: "Tan-Tan",
       period: "May 2023 - Jul 2023",
-      description: "Conception et réalisation d'une application multiplateforme pour la gestion du service de formation. Développement avec Spring Boot (back-end) et Flutter (front-end), améliorant l'organisation et le suivi des formations.",
+      description: "Designed and implemented a cross-platform application for training service management. Used Spring Boot (back-end) and Flutter (front-end) to improve organization and tracking of training programs.",
       skills: ["Spring Boot", "Flutter", "Full-stack"]
     },
     {
-      position: "Développeur Desktop",
-      type: "Stage",
+      position: "Desktop Application Developer",
+      type: "Internship",
       company: "ASAT",
       location: "Tan-Tan",
       period: "Jul 2022 - Aug 2022",
-      description: "Développement d'un système d'information pour automatiser le pointage des présences des employés. L'application, couplée à un scanner de cartes, enregistre chaque passage en temps réel dans une base de données dédiée, permettant une gestion efficace des présences quotidiennes et la génération de rapports précis.",
+      description: "Developed an information system to automate employee attendance tracking. The application, connected to a card scanner, records each entry in real-time in a dedicated database, enabling efficient daily attendance management and precise report generation.",
       skills: ["Desktop Development", "Database", "Card Scanner"],
       companyUrl: "https://asat.ma/"
     }
@@ -186,20 +172,20 @@ export default function Home() {
   // Projects data
   const projects = [
     {
-      title: "Détection de spams par apprentissage automatique",
-      description: "Développement et intégration d'un modèle de machine learning pour détecter les spams, renforçant les mesures de cybersécurité.",
+      title: "Machine Learning Spam Detection",
+      description: "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
       image: "https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"]
     },
     {
-      title: "Sécurisation Réseau RIP/OSPF",
-      description: "Renforcement de la sécurité réseau en implémentant l'authentification DMAC et le chiffrement OpenSSL pour protéger les échanges de données dans un environnement RIP/OSPF.",
+      title: "RIP/OSPF Network Security",
+      description: "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"]
     },
     {
-      title: "Application Cross-Platforme Sécurisée",
-      description: "Création d'une application multiplateforme (iOS, Android, Web) pour la gestion de projets, utilisant Spring Boot pour le back-end et Flutter pour le front-end, avec Spring Security pour l'authentification.",
+      title: "Secure Cross-Platform Application",
+      description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
       image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
@@ -208,17 +194,17 @@ export default function Home() {
   // Skills data
   const skillCategories = [
     {
-      name: "Cybersécurité",
+      name: "Cybersecurity",
       skills: [
-        { name: "Sécurisation réseau (RIP/OSPF, IDS/IPS)", level: 95 },
-        { name: "Gestion des identités (IAM)", level: 90 },
-        { name: "Chiffrement (TLS/SSL, IPSec)", level: 90 },
-        { name: "Sécurité des API (OAuth2, JWT)", level: 85 },
-        { name: "Sécurité Web (OWASP, pentesting)", level: 90 }
+        { name: "Network Security (RIP/OSPF, IDS/IPS)", level: 95 },
+        { name: "Identity Management (IAM)", level: 90 },
+        { name: "Encryption (TLS/SSL, IPSec)", level: 90 },
+        { name: "API Security (OAuth2, JWT)", level: 85 },
+        { name: "Web Security (OWASP, pentesting)", level: 90 }
       ]
     },
     {
-      name: "Développement d'applications",
+      name: "Application Development",
       skills: [
         { name: "Spring Boot", level: 90 },
         { name: "Flutter (Mobile/Embedded)", level: 85 },
@@ -226,15 +212,15 @@ export default function Home() {
         { name: "Web Frameworks (React, Django)", level: 80 },
         { name: "DevOps/DevSecOps (CI/CD, Jenkins)", level: 85 },
         { name: "Database Management (SQL/NoSQL)", level: 85 },
-        { name: "Méthodologies Agile", level: 85 },
+        { name: "Agile Methodologies", level: 85 },
         { name: "Git/GitHub", level: 90 }
       ]
     },
     {
-      name: "Virtualisation & Conteneurisation",
+      name: "Virtualization & Containerization",
       skills: [
         { name: "Docker/Kubernetes", level: 90 },
-        { name: "Gestion de VM (VMware)", level: 85 }
+        { name: "VM Management (VMware)", level: 85 }
       ]
     },
     {
@@ -245,26 +231,26 @@ export default function Home() {
       ]
     },
     {
-      name: "Administration réseau",
+      name: "Network Administration",
       skills: [
         { name: "GNS3/Cisco Packet Tracer", level: 95 },
-        { name: "Protocoles (RIP/OSPF, BGP)", level: 90 },
+        { name: "Protocols (RIP/OSPF, BGP)", level: 90 },
         { name: "Infrastructure Security (Firewalls, VPN)", level: 90 }
       ]
     },
     {
-      name: "Robotique & Embedded Systems",
+      name: "Robotics & Embedded Systems",
       skills: [
-        { name: "Robotique (Arduino, Raspberry Pi)", level: 80 }
+        { name: "Robotics (Arduino, Raspberry Pi)", level: 80 }
       ]
     }
   ];
   
   // Languages data
   const languages = [
-    { name: "Arabe", level: 5, proficiency: "Native" },
-    { name: "Francais", level: 4, proficiency: "Fluent" },
-    { name: "Anglais", level: 3, proficiency: "Professional" }
+    { name: "Arabic", level: 5, proficiency: "Native" },
+    { name: "French", level: 4, proficiency: "Fluent" },
+    { name: "English", level: 3, proficiency: "Professional" }
   ];
 
   return (
@@ -392,7 +378,7 @@ export default function Home() {
               <p className="text-foreground/80 mb-6 leading-relaxed">
                 My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-1 gap-6 mb-8">
                 <div className="flex items-center email-container max-w-full">
                   <Mail className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
                   <span className="email-text block w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
