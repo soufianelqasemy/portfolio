@@ -374,13 +374,13 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <h3 className="text-2xl font-mono font-bold mb-6 gradient-text">
-                Cybersecurity Engineer &amp; Developer
+                {t("about.subtitle")}
               </h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                Born on February 5, 2004, I am a passionate Cybersecurity Engineer with expertise in network security, application development, and machine learning for cybersecurity applications.
+                {t("about.bio1")}
               </p>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
+                {t("about.bio2")}
               </p>
               <div className="grid grid-cols-1 gap-6 mb-8">
                 <div className="flex items-center email-container max-w-full">
@@ -578,7 +578,7 @@ export default function Home() {
                     <Phone className="text-primary h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-mono font-bold text-foreground mb-1">Phone</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.phone")}</h4>
                     <p className="text-muted-foreground contact-text">+212 646937382</p>
                   </div>
                 </div>
@@ -588,7 +588,7 @@ export default function Home() {
                     <MapPin className="text-primary h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-mono font-bold text-foreground mb-1">Location</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.location")}</h4>
                     <p className="text-muted-foreground">Tan-Tan, Morocco</p>
                   </div>
                 </div>
