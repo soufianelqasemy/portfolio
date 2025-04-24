@@ -101,7 +101,8 @@ html {
 
 /* Email and contact display */
 .email-text, .contact-text {
-  @apply truncate max-w-full;
+  @apply whitespace-nowrap text-ellipsis overflow-hidden inline-block w-full;
+  word-break: keep-all;
 }
 
 .date-format {
@@ -116,7 +117,9 @@ html {
   
   /* Make email and contact info fit on small screens */
   .email-text, .contact-text {
-    @apply text-sm truncate max-w-[200px];
+    @apply text-sm;
+    width: 100%;
+    max-width: 100%;
   }
   
   /* Handle grid better on mobile devices */
@@ -128,11 +131,17 @@ html {
   .md\:grid-cols-2 {
     @apply grid-cols-1;
   }
+  
+  /* Fix top spacing */
+  .hero-section {
+    @apply pt-20;
+  }
 }
 
 /* Fix layout issues on resize */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-  .email-text {
-    @apply max-w-[230px];
+  .email-container {
+    width: 100%;
+    max-width: 100%;
   }
 }

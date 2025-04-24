@@ -9,6 +9,7 @@ import SkillSection from "@/components/SkillSection";
 import LanguageProficiency from "@/components/LanguageProficiency";
 import { apiRequest } from "@/lib/queryClient";
 import profileImage from "@/assets/profileImage";
+import cvPdf from "@/assets/cvPdf";
 import {
   ChevronDown,
   Download,
@@ -64,10 +65,44 @@ export default function Home() {
   
   // Handle CV download
   const handleDownloadCV = () => {
-    toast({
-      title: "CV Downloaded",
-      description: "Thank you for your interest in my CV.",
-    });
+    // Create an anchor element
+    const link = document.createElement('a');
+    
+    // Set the download attribute with the filename
+    link.download = cvPdf.filename;
+    
+    // Set the href attribute to the CV path (this is a module import path)
+    // We need to use a dynamic import to get the actual URL
+    import(/* @vite-ignore */ cvPdf.path.replace('@assets/', '/attached_assets/'))
+      .then(module => {
+        // Create a blob URL from the module default export
+        const fileUrl = module.default;
+        
+        // Set the href to the blob URL
+        link.href = fileUrl;
+        
+        // Append to the document
+        document.body.appendChild(link);
+        
+        // Trigger the download
+        link.click();
+        
+        // Clean up
+        document.body.removeChild(link);
+        
+        toast({
+          title: "CV Downloaded",
+          description: "Thank you for your interest in my CV.",
+        });
+      })
+      .catch(error => {
+        console.error('Error downloading CV:', error);
+        toast({
+          variant: "destructive",
+          title: "Download Failed",
+          description: "There was an error downloading the CV. Please try again.",
+        });
+      });
   };
   
   // Handle form submission mutation
@@ -139,11 +174,12 @@ export default function Home() {
     {
       position: "Développeur Desktop",
       type: "Stage",
-      company: "Tan-Tan",
+      company: "ASAT",
       location: "Tan-Tan",
       period: "Jul 2022 - Aug 2022",
       description: "Développement d'un système d'information pour automatiser le pointage des présences des employés. L'application, couplée à un scanner de cartes, enregistre chaque passage en temps réel dans une base de données dédiée, permettant une gestion efficace des présences quotidiennes et la génération de rapports précis.",
-      skills: ["Desktop Development", "Database", "Card Scanner"]
+      skills: ["Desktop Development", "Database", "Card Scanner"],
+      companyUrl: "https://asat.ma/"
     }
   ];
   
@@ -357,9 +393,9 @@ export default function Home() {
                 My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center overflow-hidden">
+                <div className="flex items-center email-container max-w-full">
                   <Mail className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="email-text">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
+                  <span className="email-text block w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
@@ -535,9 +571,9 @@ export default function Home() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
                     <Mail className="text-primary h-5 w-5" />
                   </div>
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden w-full email-container">
                     <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground email-text">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
+                    <p className="text-muted-foreground email-text w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
                 
