@@ -1,55 +1,33 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { motion } from "framer-motion";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
 
+  const languages = [
+    { code: "en", label: "EN" },
+    { code: "fr", label: "FR" },
+    { code: "ar", label: "العربية" }
+  ];
+
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button
-          variant="outline"
-          size="icon"
-          className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
-          aria-label="Change language"
+    <div className="flex items-center space-x-2 rtl:space-x-reverse">
+      {languages.map((lang) => (
+        <motion.button
+          key={lang.code}
+          onClick={() => setLanguage(lang.code as "en" | "fr" | "ar")}
+          className={`px-2 py-1 rounded-md text-sm font-medium transition-all ${
+            language === lang.code
+              ? "bg-primary text-background"
+              : "text-muted-foreground hover:text-foreground"
+          }`}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <Globe className="h-5 w-5" />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="bg-black/90 border-primary/20">
-        <DropdownMenuItem
-          className={`${
-            language === "en" ? "bg-primary/20 text-primary" : "text-foreground hover:text-primary"
-          } cursor-pointer transition-colors`}
-          onClick={() => setLanguage("en")}
-        >
-          English
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className={`${
-            language === "fr" ? "bg-primary/20 text-primary" : "text-foreground hover:text-primary"
-          } cursor-pointer transition-colors`}
-          onClick={() => setLanguage("fr")}
-        >
-          Français
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className={`${
-            language === "ar" ? "bg-primary/20 text-primary" : "text-foreground hover:text-primary"
-          } cursor-pointer transition-colors`}
-          onClick={() => setLanguage("ar")}
-        >
-          العربية
-        </DropdownMenuItem>
-      </DropdownMenuContent>
-    </DropdownMenu>
+          {lang.label}
+        </motion.button>
+      ))}
+    </div>
   );
 }

@@ -53,10 +53,10 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   // Handle CV download
   const handleDownloadCV = () => {
-    // Display a toast notification
+    // Display a toast notification with translated message
     toast({
-      title: "Downloading CV",
-      description: "Your download will start shortly.",
+      title: t("success.cvDownloaded"),
+      description: t("success.cvDownloadedDesc"),
     });
   };
 
@@ -188,7 +188,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </div>
             
             <div className="text-muted-foreground text-sm text-center md:text-right">
-              &copy; {currentYear} Soufiane El Qasemy. All rights reserved.
+              &copy; {currentYear} Soufiane El Qasemy. {t("footer.copyright")}
             </div>
           </div>
         </div>

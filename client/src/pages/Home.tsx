@@ -10,6 +10,7 @@ import LanguageProficiency from "@/components/LanguageProficiency";
 import { apiRequest } from "@/lib/queryClient";
 import profileImage from "@/assets/profileImage";
 import cvPdf from "@/assets/cvPdf";
+import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ChevronDown,
   Download,
