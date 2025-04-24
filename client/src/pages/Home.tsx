@@ -399,9 +399,15 @@ export default function Home() {
               <div className="flex space-x-4">
                 <Button 
                   className="bg-black hover:bg-black/80 text-foreground"
-                  onClick={handleDownloadCV}
+                  asChild
                 >
-                  <Download className="mr-2 h-4 w-4" /> Download CV
+                  <a 
+                    href="/attached_assets/SoufianeElQasemy CV.pdf" 
+                    download="SoufianeElQasemy-CV.pdf"
+                    target="_blank"
+                  >
+                    <Download className="mr-2 h-4 w-4" /> Download CV
+                  </a>
                 </Button>
                 <div className="flex space-x-3">
                   <Button
