@@ -357,21 +357,21 @@ export default function Home() {
                 My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center">
+                <div className="flex items-center overflow-hidden">
                   <Mail className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="email-text overflow-hidden">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
+                  <span className="email-text">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
                   <span className="contact-text">+212 646937382</span>
                 </div>
                 <div className="flex items-center">
-                  <MapPin className="text-primary mr-3 h-5 w-5" />
+                  <MapPin className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
                   <span>Tan-Tan, Morocco</span>
                 </div>
                 <div className="flex items-center">
-                  <Calendar className="text-primary mr-3 h-5 w-5" />
-                  <span>05/02/2004</span>
+                  <Calendar className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
+                  <span className="date-format">05 Feb 2004</span>
                 </div>
               </div>
               <div className="flex space-x-4">
@@ -535,9 +535,9 @@ export default function Home() {
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
                     <Mail className="text-primary h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="overflow-hidden">
                     <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground email-text overflow-hidden">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
+                    <p className="text-muted-foreground email-text">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
                 

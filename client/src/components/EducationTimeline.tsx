@@ -34,7 +34,7 @@ export default function EducationTimeline({ educationList }: EducationTimelinePr
                 <h3 className="text-xl font-mono font-bold text-primary">
                   {education.degree}
                 </h3>
-                <span className="text-muted-foreground mt-2 md:mt-0">
+                <span className="text-muted-foreground mt-2 md:mt-0 date-format">
                   {education.period}
                 </span>
               </div>

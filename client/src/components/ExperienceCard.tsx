@@ -25,7 +25,7 @@ export default function ExperienceCard({ experience, index }: ExperienceCardProp
         </div>
         <p className="text-foreground/80 mb-2">{experience.company}</p>
         <p className="text-muted-foreground mb-4">
-          {experience.location} • {experience.period}
+          <span className="inline-block">{experience.location}</span> • <span className="date-format inline-block">{experience.period}</span>
         </p>
         <p className="text-foreground/80 leading-relaxed">
           {experience.description}

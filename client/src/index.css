@@ -99,6 +99,15 @@ html {
   @apply font-mono text-xs text-primary;
 }
 
+/* Email and contact display */
+.email-text, .contact-text {
+  @apply truncate max-w-full;
+}
+
+.date-format {
+  @apply whitespace-nowrap;
+}
+
 /* Responsive fixes */
 @media screen and (max-width: 768px) {
   .container {
@@ -107,11 +116,23 @@ html {
   
   /* Make email and contact info fit on small screens */
   .email-text, .contact-text {
-    @apply text-sm truncate;
+    @apply text-sm truncate max-w-[200px];
   }
   
   /* Handle grid better on mobile devices */
   .grid {
     @apply gap-4;
+  }
+  
+  /* Better spacing for stacked elements */
+  .md\:grid-cols-2 {
+    @apply grid-cols-1;
+  }
+}
+
+/* Fix layout issues on resize */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .email-text {
+    @apply max-w-[230px];
   }
 }

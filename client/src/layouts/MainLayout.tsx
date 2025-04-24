@@ -68,7 +68,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-background">
+    <div className="min-h-screen flex flex-col bg-background overflow-x-hidden w-full">
       {/* Navigation */}
       <nav className="fixed w-full z-20 bg-black/90 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3">
@@ -126,14 +126,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
       </nav>
 
       {/* Main content */}
-      <main className="flex-grow">
+      <main className="flex-grow w-full overflow-x-hidden">
         {children}
       </main>
 
       {/* Footer */}
-      <footer className="bg-black py-10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-center">
+      <footer className="bg-black py-10 w-full">
+        <div className="container mx-auto px-4 max-w-full">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="mb-6 md:mb-0">
               <a href="#home" className="text-xl font-mono font-bold text-primary">
                 <span className="text-foreground">&lt;</span>S.ElQasemy
@@ -170,7 +170,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <Twitter className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.instagram.com/soufiane04elq?igsh=MWZ2NmxqMDdnODY3MQ==" 
+                href="https://www.instagram.com/soufiane04elq" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -180,7 +180,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               </a>
             </div>
             
-            <div className="text-muted-foreground text-sm">
+            <div className="text-muted-foreground text-sm text-center md:text-right">
               &copy; {currentYear} Soufiane El Qasemy. All rights reserved.
             </div>
           </div>
