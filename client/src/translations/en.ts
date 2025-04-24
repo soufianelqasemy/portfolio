@@ -110,7 +110,10 @@ const translations = {
 
   // Error messages
   "error.title": "Error",
-  "error.messageFailed": "There was an error sending your message. Please try again."
+  "error.messageFailed": "There was an error sending your message. Please try again.",
+  
+  // Footer
+  "footer.copyright": "All rights reserved."
 };
 
 export default translations;

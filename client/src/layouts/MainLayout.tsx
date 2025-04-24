@@ -12,6 +12,8 @@ import {
   Download
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 import cvPdf from "@/assets/cvPdf";
 
 type MainLayoutProps = {
@@ -23,6 +25,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const currentYear = new Date().getFullYear();
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   // Handle mobile menu toggle
   const toggleMobileMenu = () => {
@@ -57,14 +60,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
     });
   };
 
-  // Navigation links
+  // Navigation links with translations
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#education", label: "Education" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" }
+    { href: "#about", labelKey: "nav.about" },
+    { href: "#education", labelKey: "nav.education" },
+    { href: "#experience", labelKey: "nav.experience" },
+    { href: "#projects", labelKey: "nav.projects" },
+    { href: "#skills", labelKey: "nav.skills" },
+    { href: "#contact", labelKey: "nav.contact" }
   ];
 
   return (
@@ -77,16 +80,17 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <span className="text-foreground">&lt;</span>S.ElQasemy
               <span className="text-foreground">/&gt;</span>
             </a>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex space-x-8 items-center">
               {navLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className="text-foreground hover:text-primary transition-colors"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </a>
               ))}
+              <LanguageSwitcher />
             </div>
             <button
               onClick={toggleMobileMenu}
@@ -116,9 +120,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
                     onClick={closeMobileMenu}
                     className="text-foreground hover:text-primary py-2 transition-colors"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </a>
                 ))}
+                <div className="py-2">
+                  <LanguageSwitcher />
+                </div>
               </div>
             </motion.div>
           )}
