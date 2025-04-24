@@ -8,6 +8,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SkillSection from "@/components/SkillSection";
 import LanguageProficiency from "@/components/LanguageProficiency";
 import { apiRequest } from "@/lib/queryClient";
+import profileImage from "@/assets/profileImage";
 import {
   ChevronDown,
   Download,
@@ -173,37 +174,52 @@ export default function Home() {
     {
       name: "Cybersécurité",
       skills: [
-        { name: "Sécurisation réseau RIP/OSPF", level: 90 },
-        { name: "Gestion des identités (IAM)", level: 85 },
-        { name: "Chiffrement TLS/SSL", level: 80 },
-        { name: "Sécurité des API (OAuth2, JWT)", level: 85 }
+        { name: "Sécurisation réseau (RIP/OSPF, IDS/IPS)", level: 95 },
+        { name: "Gestion des identités (IAM)", level: 90 },
+        { name: "Chiffrement (TLS/SSL, IPSec)", level: 90 },
+        { name: "Sécurité des API (OAuth2, JWT)", level: 85 },
+        { name: "Sécurité Web (OWASP, pentesting)", level: 90 }
       ]
     },
     {
       name: "Développement d'applications",
       skills: [
         { name: "Spring Boot", level: 90 },
-        { name: "Flutter", level: 85 },
-        { name: "Spring Security", level: 80 },
-        { name: "Database Management", level: 85 }
+        { name: "Flutter (Mobile/Embedded)", level: 85 },
+        { name: "Spring Security", level: 85 },
+        { name: "Web Frameworks (React, Django)", level: 80 },
+        { name: "DevOps/DevSecOps (CI/CD, Jenkins)", level: 85 },
+        { name: "Database Management (SQL/NoSQL)", level: 85 },
+        { name: "Méthodologies Agile", level: 85 },
+        { name: "Git/GitHub", level: 90 }
       ]
     },
     {
-      name: "Machine Learning",
+      name: "Virtualisation & Conteneurisation",
       skills: [
-        { name: "Python", level: 90 },
-        { name: "scikit-learn", level: 80 },
-        { name: "pandas", level: 85 },
-        { name: "Data Visualization", level: 75 }
+        { name: "Docker/Kubernetes", level: 90 },
+        { name: "Gestion de VM (VMware)", level: 85 }
+      ]
+    },
+    {
+      name: "Machine Learning & Data Science",
+      skills: [
+        { name: "Python (scikit-learn, pandas)", level: 90 },
+        { name: "Data Visualization (Matplotlib, Tableau)", level: 80 }
       ]
     },
     {
       name: "Administration réseau",
       skills: [
-        { name: "GNS3", level: 90 },
-        { name: "Cisco Packet Tracer", level: 85 },
-        { name: "Protocoles RIP/OSPF", level: 90 },
-        { name: "Infrastructure Security", level: 80 }
+        { name: "GNS3/Cisco Packet Tracer", level: 95 },
+        { name: "Protocoles (RIP/OSPF, BGP)", level: 90 },
+        { name: "Infrastructure Security (Firewalls, VPN)", level: 90 }
+      ]
+    },
+    {
+      name: "Robotique & Embedded Systems",
+      skills: [
+        { name: "Robotique (Arduino, Raspberry Pi)", level: 80 }
       ]
     }
   ];
@@ -279,7 +295,7 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                  src={profileImage.path}
                   alt="Soufiane El Qasemy" 
                   className="w-full h-full object-cover" 
                 />
@@ -342,12 +358,12 @@ export default function Home() {
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <div className="flex items-center">
-                  <Mail className="text-primary mr-3 h-5 w-5" />
-                  <span>soufianelqasemy62@gmail.com</span>
+                  <Mail className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
+                  <span className="email-text overflow-hidden">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
                 </div>
                 <div className="flex items-center">
-                  <Phone className="text-primary mr-3 h-5 w-5" />
-                  <span>0646937382</span>
+                  <Phone className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
+                  <span className="contact-text">+212 646937382</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="text-primary mr-3 h-5 w-5" />
@@ -372,7 +388,7 @@ export default function Home() {
                     className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
                     asChild
                   >
-                    <a href="#" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/soufiane-e-706261287/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                       <Linkedin className="h-4 w-4" />
                     </a>
                   </Button>
@@ -382,7 +398,7 @@ export default function Home() {
                     className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
                     asChild
                   >
-                    <a href="#" aria-label="GitHub">
+                    <a href="https://github.com/soufianelqasemy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                       <Github className="h-4 w-4" />
                     </a>
                   </Button>
@@ -392,7 +408,7 @@ export default function Home() {
                     className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
                     asChild
                   >
-                    <a href="#" aria-label="Twitter">
+                    <a href="https://x.com/QasemySouf9438" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                       <Twitter className="h-4 w-4" />
                     </a>
                   </Button>
@@ -521,7 +537,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground">soufianelqasemy62@gmail.com</p>
+                    <p className="text-muted-foreground">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
                 
@@ -531,7 +547,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-mono font-bold text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground">0646937382</p>
+                    <p className="text-muted-foreground">+212 646937382</p>
                   </div>
                 </div>
                 

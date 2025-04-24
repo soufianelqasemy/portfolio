@@ -37,6 +37,11 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
   }
+  
+  /* Make sure long text doesn't overflow on mobile */
+  p, span, h1, h2, h3, h4, h5, h6 {
+    @apply break-words;
+  }
 }
 
 html {
@@ -87,4 +92,21 @@ html {
 /* Matrix effect for the background */
 .matrix-bg {
   @apply font-mono text-xs text-primary;
+}
+
+/* Responsive fixes */
+@media screen and (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+  
+  /* Make email and contact info fit on small screens */
+  .email-text, .contact-text {
+    @apply text-sm truncate;
+  }
+  
+  /* Handle grid better on mobile devices */
+  .grid {
+    @apply gap-4;
+  }
 }
