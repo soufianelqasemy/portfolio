@@ -143,28 +143,36 @@ export default function MainLayout({ children }: MainLayoutProps) {
             
             <div className="flex space-x-6 mb-6 md:mb-0">
               <a 
-                href="#" 
+                href="https://www.linkedin.com/in/soufiane-e-706261287/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://github.com/soufianelqasemy" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://x.com/QasemySouf9438" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/soufiane04elq?igsh=MWZ2NmxqMDdnODY3MQ==" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
