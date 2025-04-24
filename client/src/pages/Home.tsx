@@ -30,6 +30,9 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 
 export default function Home() {
+  // Get translation function
+  const { t, language } = useLanguage();
+  
   // Refs for animating elements when they come into view
   const aboutRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
@@ -87,8 +90,8 @@ export default function Home() {
     document.body.removeChild(link);
     
     toast({
-      title: "CV Downloaded",
-      description: "Thank you for your interest in my CV.",
+      title: t("success.cvDownloaded"),
+      description: t("success.cvDownloadedDesc"),
     });
   };
   
@@ -100,8 +103,8 @@ export default function Home() {
     },
     onSuccess: () => {
       toast({
-        title: "Message Sent",
-        description: "Thank you for your message. I'll get back to you soon!",
+        title: t("success.messageSent"),
+        description: t("success.messageSentDesc"),
       });
       setFormData({
         name: "",
@@ -113,8 +116,8 @@ export default function Home() {
     onError: (error) => {
       toast({
         variant: "destructive",
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
+        title: t("error.title"),
+        description: t("error.messageFailed"),
       });
     }
   });
@@ -279,7 +282,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Cybersecurity Engineer
+                {t("hero.title")}
               </motion.h2>
               <motion.p 
                 className="text-foreground/80 mb-8 text-lg leading-relaxed max-w-lg"
@@ -287,7 +290,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                Specializing in network security, application development, and machine learning for cybersecurity applications.
+                {t("hero.subtitle")}
               </motion.p>
               <motion.div 
                 className="flex space-x-4"
@@ -299,14 +302,14 @@ export default function Home() {
                   className="bg-primary hover:bg-primary/80 text-background" 
                   asChild
                 >
-                  <a href="#contact">Contact Me</a>
+                  <a href="#contact">{t("hero.contactBtn")}</a>
                 </Button>
                 <Button 
                   variant="outline" 
                   className="border-primary text-primary hover:bg-primary/10"
                   asChild
                 >
-                  <a href="#about">Learn More</a>
+                  <a href="#about">{t("hero.learnMoreBtn")}</a>
                 </Button>
               </motion.div>
             </div>
@@ -343,7 +346,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            About Me
+            {t("about.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center">
@@ -407,7 +410,7 @@ export default function Home() {
                     download="SoufianeElQasemy-CV.pdf"
                     target="_blank"
                   >
-                    <Download className="mr-2 h-4 w-4" /> Download CV
+                    <Download className="mr-2 h-4 w-4" /> {t("about.downloadCV")}
                   </a>
                 </Button>
                 <div className="flex space-x-3">
@@ -458,7 +461,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            Education
+            {t("education.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           <EducationTimeline educationList={educationList} />
@@ -475,7 +478,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            Professional Experience
+            {t("experience.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
