@@ -127,7 +127,7 @@ export default function Home() {
   // Education data
   const educationList = [
     {
-      degree: "Engineering Degree in Digital Security and Trust",
+      degree: "Engineering Degree in Security IT and Digital Trust",
       institution: "National School of Artificial Intelligence and Data Science",
       location: "Taroudant",
       period: "Jan 2024 - Present"

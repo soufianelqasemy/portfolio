@@ -47,22 +47,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           ))}
         </div>
-        <div className="flex justify-between items-center">
-          <a
-            href="#projects"
-            className="text-primary hover:text-secondary font-semibold text-sm flex items-center transition-colors"
-          >
-            View Project <span className="ml-2 text-xs group-hover:translate-x-1 transition-transform duration-300">→</span>
-          </a>
-          
-          <a 
-            href="#" 
-            className="text-primary hover:text-secondary transition-colors"
-            aria-label="GitHub repository"
-          >
-            <Github className="h-5 w-5" />
-          </a>
-        </div>
+        {/* Project links removed as requested */}
       </div>
     </motion.div>
   );
