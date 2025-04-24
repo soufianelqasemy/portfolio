@@ -500,7 +500,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            Projects
+            {t("projects.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -522,7 +522,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            Skills
+            {t("skills.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -547,7 +547,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            Contact Me
+            {t("contact.title")}
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -557,9 +557,9 @@ export default function Home() {
               animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-xl font-mono font-bold mb-6 text-primary">Get In Touch</h3>
+              <h3 className="text-xl font-mono font-bold mb-6 text-primary">{t("contact.getInTouch")}</h3>
               <p className="text-foreground/80 mb-8 leading-relaxed">
-                Feel free to contact me for any project, collaboration, or opportunity. I am always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                {t("contact.message")}
               </p>
               
               <div className="space-y-6">
@@ -568,7 +568,7 @@ export default function Home() {
                     <Mail className="text-primary h-5 w-5" />
                   </div>
                   <div className="overflow-hidden w-full email-container">
-                    <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.email")}</h4>
                     <p className="text-muted-foreground email-text w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
@@ -602,7 +602,7 @@ export default function Home() {
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono">Name</label>
+                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.name")}</label>
                   <Input 
                     type="text" 
                     id="name" 
@@ -615,7 +615,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono">Email</label>
+                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.email")}</label>
                   <Input 
                     type="email" 
                     id="email" 
@@ -628,7 +628,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono">Subject</label>
+                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.subject")}</label>
                   <Input 
                     type="text" 
                     id="subject" 
@@ -641,7 +641,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono">Message</label>
+                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.message")}</label>
                   <Textarea 
                     id="message" 
                     name="message" 
@@ -658,7 +658,7 @@ export default function Home() {
                   className="bg-primary hover:bg-primary/80 text-background font-semibold w-full"
                   disabled={mutation.isPending}
                 >
-                  {mutation.isPending ? "Sending..." : "Send Message"}
+                  {mutation.isPending ? t("contact.form.sending") : t("contact.form.send")}
                 </Button>
               </form>
             </motion.div>
