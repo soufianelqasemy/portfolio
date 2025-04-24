@@ -537,7 +537,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
+                    <p className="text-muted-foreground email-text overflow-hidden">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
                 
@@ -547,7 +547,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h4 className="font-mono font-bold text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground">+212 646937382</p>
+                    <p className="text-muted-foreground contact-text">+212 646937382</p>
                   </div>
                 </div>
                 

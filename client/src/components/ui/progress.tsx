@@ -25,8 +25,8 @@ const Progress = React.forwardRef<
     </ProgressPrimitive.Root>
     {indicator && (
       <div className="flex justify-between mb-2">
-        <span className="text-muted-foreground">{indicator}</span>
-        <span className="text-primary">{value}%</span>
+        <span className="text-muted-foreground text-sm md:text-base truncate pr-2">{indicator}</span>
+        <span className="text-primary text-sm md:text-base flex-shrink-0">{value}%</span>
       </div>
     )}
   </div>
