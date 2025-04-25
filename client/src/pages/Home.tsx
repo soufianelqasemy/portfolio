@@ -103,7 +103,7 @@ export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Handle form submission
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -135,9 +135,20 @@ export default function Home() {
       return;
     }
 
-    // Simulate sending a message (without actually sending)
-    setTimeout(() => {
-      console.log("Contact form data:", formData);
+    try {
+      // Send the message to the server
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to send message');
+      }
 
       // Show success message
       toast({
@@ -152,9 +163,16 @@ export default function Home() {
         subject: "",
         message: "",
       });
-
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to send message. Please try again later.",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   // Education data
