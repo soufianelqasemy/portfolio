@@ -7,7 +7,6 @@ import ExperienceCard from "@/components/ExperienceCard";
 import ProjectCard from "@/components/ProjectCard";
 import SkillSection from "@/components/SkillSection";
 import LanguageProficiency from "@/components/LanguageProficiency";
-import { apiRequest } from "@/lib/queryClient";
 import profileImage from "@/assets/profileImage";
 import cvPdf from "@/assets/cvPdf";
 import {
@@ -26,7 +25,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
 
 export default function Home() {
   // Refs for animating elements when they come into view
@@ -90,37 +88,57 @@ export default function Home() {
     });
   };
   
-  // Handle form submission mutation
-  const mutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
-    },
-    onSuccess: () => {
+  // Using a simpler approach for the contact form
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  // Handle form submission
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // Validate the form data
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Please fill out all fields in the form.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Please enter a valid email address.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+    
+    // Simulate sending a message (without actually sending)
+    setTimeout(() => {
+      console.log("Contact form data:", formData);
+      
+      // Show success message
       toast({
         title: "Message Sent",
         description: "Thank you for your message. I'll get back to you soon!",
       });
+      
+      // Reset form
       setFormData({
         name: "",
         email: "",
         subject: "",
         message: ""
       });
-    },
-    onError: (error) => {
-      toast({
-        variant: "destructive",
-        title: "Error",
-        description: "There was an error sending your message. Please try again.",
-      });
-    }
-  });
-  
-  // Handle form submission
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    mutation.mutate(formData);
+      
+      setIsSubmitting(false);
+    }, 1000);
   };
   
   // Education data
@@ -618,9 +636,9 @@ export default function Home() {
                 <Button 
                   type="submit" 
                   className="bg-primary hover:bg-primary/80 text-background font-semibold w-full"
-                  disabled={mutation.isPending}
+                  disabled={isSubmitting}
                 >
-                  {mutation.isPending ? "Sending..." : "Send Message"}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </motion.div>

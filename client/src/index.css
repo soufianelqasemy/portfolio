@@ -128,26 +128,31 @@ html {
     @apply px-4;
   }
   
-  /* Make email and contact info fit on small screens */
   .email-text, .contact-text {
     @apply text-sm;
     width: 100%;
     max-width: 100%;
+    word-break: break-word;
   }
   
-  /* Handle grid better on mobile devices */
   .grid {
     @apply gap-4;
   }
   
-  /* Better spacing for stacked elements */
-  .md\:grid-cols-2 {
-    @apply grid-cols-1;
+  section {
+    @apply py-12;
   }
   
-  /* Fix top spacing */
+  h1, h2, h3 {
+    @apply text-center;
+  }
+  
   .hero-section {
-    @apply pt-20;
+    @apply pt-20 pb-16;
+  }
+  
+  .rounded-full {
+    @apply mx-auto;
   }
 }
 
@@ -160,14 +165,14 @@ html {
 }
 
 /* Enhanced card styles */
-.bg-black\/20, .bg-black\/30, .bg-black\/50 {
+.bg-card-blur {
   backdrop-filter: blur(8px);
   transition: all 0.3s ease;
 }
 
-.hover\:border-primary\/40:hover {
+.card-hover:hover {
   box-shadow: 0 5px 15px rgba(45, 212, 191, 0.2);
-  transform: translateY(-5px) !important;
+  transform: translateY(-5px);
 }
 
 /* Button effects */
@@ -203,4 +208,27 @@ html {
 /* Radial gradient background */
 .bg-gradient-radial {
   background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  .mobile-stack {
+    @apply flex-col;
+  }
+  
+  .mobile-center {
+    @apply text-center;
+  }
+  
+  .mobile-full-width {
+    @apply w-full;
+  }
+  
+  .mobile-p-4 {
+    @apply p-4;
+  }
+  
+  .mobile-text-base {
+    @apply text-base;
+  }
 }
