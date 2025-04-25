@@ -173,19 +173,19 @@ export default function Home() {
     {
       title: "Machine Learning Spam Detection",
       description: "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
-      image: "/images/spam-detection.png",
+      image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"]
     },
     {
       title: "RIP/OSPF Network Security",
       description: "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
-      image: "/images/network-security.png",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"]
     },
     {
       title: "Secure Cross-Platform Application",
       description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
-      image: "/images/cross-platform-alt.png",
+      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
   ];
@@ -354,7 +354,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative rounded-lg overflow-hidden w-full max-w-md border border-black/30">
                   <img 
-                    src="/images/about-cybersecurity.png" 
+                    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
                     alt="Cybersecurity professional working with code" 
                     className="w-full h-80 object-cover" 
                   />
