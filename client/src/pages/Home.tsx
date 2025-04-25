@@ -492,11 +492,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Section - Mobile Optimized */}
-      <section id="skills" className="py-12 md:py-20 bg-black" ref={skillsRef}>
+      {/* Skills Section */}
+      <section id="skills" className="py-20 bg-black" ref={skillsRef}>
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-2xl md:text-3xl font-mono font-bold mb-8 md:mb-16 text-center"
+            className="text-3xl font-mono font-bold mb-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={skillsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
@@ -506,16 +506,14 @@ export default function Home() {
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {skillCategories.map((category, index) => (
               <SkillSection key={index} category={category} index={index} />
             ))}
           </div>
           
-          {/* Languages - Wrapped in a container with proper spacing */}
-          <div className="mt-10 md:mt-16 bg-black/40 backdrop-blur-sm rounded-xl border border-primary/10 p-6 md:p-8 shadow-glow-sm max-w-5xl mx-auto">
-            <LanguageProficiency languages={languages} />
-          </div>
+          {/* Languages */}
+          <LanguageProficiency languages={languages} />
         </div>
       </section>
 
