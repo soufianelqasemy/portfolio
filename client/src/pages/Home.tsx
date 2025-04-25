@@ -134,6 +134,17 @@ export default function Home() {
       setIsSubmitting(false);
       return;
     }
+    
+    // Validate message length (server requires at least 10 characters)
+    if (formData.message.length < 10) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Message must be at least 10 characters long.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       // Send the message to the server
@@ -147,7 +158,8 @@ export default function Home() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to send message');
+        console.error('Server validation error:', errorData);
+        throw new Error(errorData.errors || errorData.message || 'Failed to send message');
       }
 
       // Show success message
