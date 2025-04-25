@@ -243,8 +243,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
           </div>
           
           <div className="border-t border-foreground/10 mt-8 pt-6 text-center relative">
-            {/* Back to Top Button - Moved above copyright */}
-            <div className="flex justify-center mb-4">
+            {/* Back to Top Button - Only on mobile */}
+            <div className="flex justify-center mb-4 md:hidden">
               <a
                 href="#home"
                 className="bg-primary/80 hover:bg-primary text-background w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 mx-auto"
@@ -266,7 +266,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
         {showBackToTop && (
           <motion.a
             href="#home"
-            className="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-background w-12 h-12 rounded-full md:flex items-center justify-center shadow-lg transition-all transform hover:scale-110 hidden"
+            className="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-background w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 hidden md:flex"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
