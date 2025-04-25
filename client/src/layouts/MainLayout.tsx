@@ -9,7 +9,9 @@ import {
   Github, 
   Twitter, 
   Instagram,
-  Download
+  Download,
+  Mail,
+  Phone
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import cvPdf from "@/assets/cvPdf";
@@ -131,58 +133,104 @@ export default function MainLayout({ children }: MainLayoutProps) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black py-10 w-full">
-        <div className="container mx-auto px-4 max-w-full">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="mb-6 md:mb-0">
-              <a href="#home" className="text-xl font-mono font-bold text-primary">
+      <footer className="bg-black py-12 w-full">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            {/* About */}
+            <div className="text-center md:text-left">
+              <a href="#home" className="text-xl font-mono font-bold text-primary mb-3 inline-block">
                 <span className="text-foreground">&lt;</span>S.ElQasemy
                 <span className="text-foreground">/&gt;</span>
               </a>
+              <p className="text-foreground/70 mb-4 max-w-md mx-auto md:mx-0">
+                Cybersecurity Engineer with expertise in network security, application development, and machine learning for cybersecurity applications.
+              </p>
+              <div className="flex space-x-4 justify-center md:justify-start">
+                <a 
+                  href="https://www.linkedin.com/in/soufiane-e-706261287/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://github.com/soufianelqasemy" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  aria-label="GitHub"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://x.com/QasemySouf9438" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="h-4 w-4" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/soufiane04elq" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="h-4 w-4" />
+                </a>
+              </div>
             </div>
             
-            <div className="flex space-x-6 mb-6 md:mb-0">
-              <a 
-                href="https://www.linkedin.com/in/soufiane-e-706261287/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://github.com/soufianelqasemy" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://x.com/QasemySouf9438" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a 
-                href="https://www.instagram.com/soufiane04elq" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+            {/* Quick Links */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-mono font-bold mb-4 text-primary">Quick Links</h3>
+              <nav className="grid grid-cols-2 gap-x-4 gap-y-2">
+                <a href="#home" className="text-foreground/70 hover:text-primary transition-colors">Home</a>
+                <a href="#about" className="text-foreground/70 hover:text-primary transition-colors">About</a>
+                <a href="#education" className="text-foreground/70 hover:text-primary transition-colors">Education</a>
+                <a href="#experience" className="text-foreground/70 hover:text-primary transition-colors">Experience</a>
+                <a href="#projects" className="text-foreground/70 hover:text-primary transition-colors">Projects</a>
+                <a href="#skills" className="text-foreground/70 hover:text-primary transition-colors">Skills</a>
+                <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors">Contact</a>
+                <a 
+                  href={cvPdf.path} 
+                  download={cvPdf.filename}
+                  onClick={handleDownloadCV}
+                  className="text-foreground/70 hover:text-primary transition-colors flex items-center"
+                >
+                  <Download className="h-3 w-3 mr-1" /> CV
+                </a>
+              </nav>
             </div>
             
-            <div className="text-muted-foreground text-sm text-center md:text-right">
+            {/* Contact Info */}
+            <div className="text-center md:text-left">
+              <h3 className="text-lg font-mono font-bold mb-4 text-primary">Contact Info</h3>
+              <div className="space-y-3 max-w-md mx-auto md:mx-0">
+                <div className="flex items-center justify-center md:justify-start">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <Mail className="text-primary h-4 w-4" />
+                  </div>
+                  <span className="text-foreground/70 email-text break-all">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
+                </div>
+                <div className="flex items-center justify-center md:justify-start">
+                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
+                    <Phone className="text-primary h-4 w-4" />
+                  </div>
+                  <span className="text-foreground/70">+212 646937382</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-foreground/10 mt-10 pt-6 text-center">
+            <p className="text-sm text-foreground/50">
               &copy; {currentYear} Soufiane El Qasemy. All rights reserved.
-            </div>
+            </p>
           </div>
         </div>
       </footer>

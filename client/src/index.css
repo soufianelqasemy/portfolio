@@ -113,8 +113,9 @@ html {
 
 /* Email and contact display */
 .email-text, .contact-text {
-  @apply whitespace-nowrap text-ellipsis overflow-hidden inline-block w-full;
-  word-break: keep-all;
+  @apply overflow-hidden inline-block w-full break-all;
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .date-format {

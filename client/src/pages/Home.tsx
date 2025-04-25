@@ -173,19 +173,19 @@ export default function Home() {
     {
       title: "Machine Learning Spam Detection",
       description: "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
-      image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Machine learning code image
+      image: "/images/spam-detection.png",
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"]
     },
     {
       title: "RIP/OSPF Network Security",
       description: "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Network security image
+      image: "/images/network-security.png",
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"]
     },
     {
       title: "Secure Cross-Platform Application",
       description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
-      image: "https://images.unsplash.com/photo-1551651653-c5dcb914d809?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Mobile app development image
+      image: "/images/cross-platform-alt.png",
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
   ];
@@ -354,7 +354,7 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative rounded-lg overflow-hidden w-full max-w-md border border-black/30">
                   <img 
-                    src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                    src="/images/about-cybersecurity.png" 
                     alt="Cybersecurity professional working with code" 
                     className="w-full h-80 object-cover" 
                   />

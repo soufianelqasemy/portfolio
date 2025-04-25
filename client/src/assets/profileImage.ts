@@ -1,7 +1,7 @@
 import type { Asset } from "@/types";
 
 const profileImage: Asset = {
-  path: "/src/assets/images/profile.png",
+  path: "/images/profile.png",
   filename: "profile.png"
 };
 
