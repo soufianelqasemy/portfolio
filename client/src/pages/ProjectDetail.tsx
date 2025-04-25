@@ -148,23 +148,20 @@ export default function ProjectDetail() {
   }
 
   const handleNextImage = () => {
-    if (project.gallery && project.gallery.length > 0) {
-      setCurrentImageIndex((prev) => (prev + 1) % project.gallery.length);
+    const gallery = project.gallery || [];
+    if (gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev + 1) % gallery.length);
     }
   };
 
   const handlePrevImage = () => {
-    if (project.gallery && project.gallery.length > 0) {
-      setCurrentImageIndex((prev) => (prev - 1 + project.gallery.length) % project.gallery.length);
+    const gallery = project.gallery || [];
+    if (gallery.length > 0) {
+      setCurrentImageIndex((prev) => (prev - 1 + gallery.length) % gallery.length);
     }
   };
   
-  // Make sure currentImageIndex is always valid
-  useEffect(() => {
-    if (project.gallery && currentImageIndex >= project.gallery.length) {
-      setCurrentImageIndex(0);
-    }
-  }, [project.gallery, currentImageIndex]);
+  // Do not add any more useEffect hooks here
 
   return (
     <MainLayout>
@@ -297,56 +294,59 @@ export default function ProjectDetail() {
         )}
 
         {/* Project Gallery */}
-        {project.gallery && project.gallery.length > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="mb-16"
-          >
-            <h2 className="text-2xl font-bold mb-6 flex items-center">
-              <ImageIcon className="h-5 w-5 mr-2 text-primary" /> Gallery
-            </h2>
-            <div className="relative rounded-xl overflow-hidden shadow-glow h-[300px] md:h-[500px]">
-              {project.gallery[currentImageIndex] && (
-                <img
-                  src={project.gallery[currentImageIndex]}
-                  alt={`${project.title} - Gallery image ${currentImageIndex + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              )}
-              {project.gallery.length > 1 && (
-                <>
-                  <button
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
-                    onClick={handlePrevImage}
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
-                    onClick={handleNextImage}
-                  >
-                    &gt;
-                  </button>
-                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
-                    {project.gallery.map((_, index) => (
-                      <button
-                        key={index}
-                        className={`w-2 h-2 rounded-full ${
-                          index === currentImageIndex
-                            ? "bg-primary"
-                            : "bg-gray-400"
-                        }`}
-                        onClick={() => setCurrentImageIndex(index)}
-                      />
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-          </motion.div>
-        )}
+        {(() => {
+          const gallery = project.gallery || [];
+          return gallery.length > 0 ? (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              className="mb-16"
+            >
+              <h2 className="text-2xl font-bold mb-6 flex items-center">
+                <ImageIcon className="h-5 w-5 mr-2 text-primary" /> Gallery
+              </h2>
+              <div className="relative rounded-xl overflow-hidden shadow-glow h-[300px] md:h-[500px]">
+                {gallery[currentImageIndex] && (
+                  <img
+                    src={gallery[currentImageIndex]}
+                    alt={`${project.title} - Gallery image ${currentImageIndex + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+                {gallery.length > 1 && (
+                  <>
+                    <button
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+                      onClick={handlePrevImage}
+                    >
+                      &lt;
+                    </button>
+                    <button
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+                      onClick={handleNextImage}
+                    >
+                      &gt;
+                    </button>
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+                      {gallery.map((_, index) => (
+                        <button
+                          key={index}
+                          className={`w-2 h-2 rounded-full ${
+                            index === currentImageIndex
+                              ? "bg-primary"
+                              : "bg-gray-400"
+                          }`}
+                          onClick={() => setCurrentImageIndex(index)}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          ) : null;
+        })()}
 
         {/* Technologies */}
         <motion.div
