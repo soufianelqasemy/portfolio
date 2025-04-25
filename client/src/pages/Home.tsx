@@ -10,7 +10,6 @@ import LanguageProficiency from "@/components/LanguageProficiency";
 import { apiRequest } from "@/lib/queryClient";
 import profileImage from "@/assets/profileImage";
 import cvPdf from "@/assets/cvPdf";
-import { useLanguage } from "@/contexts/LanguageContext";
 import {
   ChevronDown,
   Download,
@@ -30,9 +29,6 @@ import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 
 export default function Home() {
-  // Get translation function
-  const { t, language } = useLanguage();
-  
   // Refs for animating elements when they come into view
   const aboutRef = useRef<HTMLDivElement>(null);
   const educationRef = useRef<HTMLDivElement>(null);
@@ -90,8 +86,8 @@ export default function Home() {
     document.body.removeChild(link);
     
     toast({
-      title: t("success.cvDownloaded"),
-      description: t("success.cvDownloadedDesc"),
+      title: "CV Downloaded",
+      description: "Thank you for your interest in my CV.",
     });
   };
   
@@ -103,8 +99,8 @@ export default function Home() {
     },
     onSuccess: () => {
       toast({
-        title: t("success.messageSent"),
-        description: t("success.messageSentDesc"),
+        title: "Message Sent",
+        description: "Thank you for your message. I'll get back to you soon!",
       });
       setFormData({
         name: "",
@@ -116,8 +112,8 @@ export default function Home() {
     onError: (error) => {
       toast({
         variant: "destructive",
-        title: t("error.title"),
-        description: t("error.messageFailed"),
+        title: "Error",
+        description: "There was an error sending your message. Please try again.",
       });
     }
   });
@@ -282,7 +278,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                {t("hero.title")}
+                Cybersecurity Engineer
               </motion.h2>
               <motion.p 
                 className="text-foreground/80 mb-8 text-lg leading-relaxed max-w-lg"
@@ -290,7 +286,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                {t("hero.subtitle")}
+                Specializing in network security, application development, and machine learning for cybersecurity applications.
               </motion.p>
               <motion.div 
                 className="flex space-x-4"
@@ -302,14 +298,14 @@ export default function Home() {
                   className="bg-primary hover:bg-primary/80 text-background" 
                   asChild
                 >
-                  <a href="#contact">{t("hero.contactBtn")}</a>
+                  <a href="#contact">Contact Me</a>
                 </Button>
                 <Button 
                   variant="outline" 
                   className="border-primary text-primary hover:bg-primary/10"
                   asChild
                 >
-                  <a href="#about">{t("hero.learnMoreBtn")}</a>
+                  <a href="#about">Learn More</a>
                 </Button>
               </motion.div>
             </div>
@@ -346,7 +342,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("about.title")}
+            About Me
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           <div className="flex flex-col md:flex-row items-center">
@@ -374,13 +370,13 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <h3 className="text-2xl font-mono font-bold mb-6 gradient-text">
-                {t("about.subtitle")}
+                Cybersecurity Engineer &amp; Developer
               </h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                {t("about.bio1")}
+                Born on February 5, 2004, I am a passionate Cybersecurity Engineer with expertise in network security, application development, and machine learning for cybersecurity applications.
               </p>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                {t("about.bio2")}
+                My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
               </p>
               <div className="grid grid-cols-1 gap-6 mb-8">
                 <div className="flex items-center email-container max-w-full">
@@ -410,7 +406,7 @@ export default function Home() {
                     download="SoufianeElQasemy-CV.pdf"
                     target="_blank"
                   >
-                    <Download className="mr-2 h-4 w-4" /> {t("about.downloadCV")}
+                    <Download className="mr-2 h-4 w-4" /> Download CV
                   </a>
                 </Button>
                 <div className="flex space-x-3">
@@ -461,7 +457,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("education.title")}
+            Education
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           <EducationTimeline educationList={educationList} />
@@ -478,7 +474,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("experience.title")}
+            Professional Experience
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -500,7 +496,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("projects.title")}
+            Projects
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -522,7 +518,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("skills.title")}
+            Skills
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -547,7 +543,7 @@ export default function Home() {
             transition={{ duration: 0.5 }}
           >
             <span className="text-primary">&lt;</span>
-            {t("contact.title")}
+            Contact Me
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
@@ -557,9 +553,9 @@ export default function Home() {
               animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <h3 className="text-xl font-mono font-bold mb-6 text-primary">{t("contact.getInTouch")}</h3>
+              <h3 className="text-xl font-mono font-bold mb-6 text-primary">Get In Touch</h3>
               <p className="text-foreground/80 mb-8 leading-relaxed">
-                {t("contact.message")}
+                Feel free to contact me for any project, collaboration, or opportunity. I am always open to discussing new projects, creative ideas or opportunities to be part of your vision.
               </p>
               
               <div className="space-y-6">
@@ -568,7 +564,7 @@ export default function Home() {
                     <Mail className="text-primary h-5 w-5" />
                   </div>
                   <div className="overflow-hidden w-full email-container">
-                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.email")}</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
                     <p className="text-muted-foreground email-text w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
@@ -578,7 +574,7 @@ export default function Home() {
                     <Phone className="text-primary h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.phone")}</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">Phone</h4>
                     <p className="text-muted-foreground contact-text">+212 646937382</p>
                   </div>
                 </div>
@@ -588,7 +584,7 @@ export default function Home() {
                     <MapPin className="text-primary h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-mono font-bold text-foreground mb-1">{t("contact.location")}</h4>
+                    <h4 className="font-mono font-bold text-foreground mb-1">Location</h4>
                     <p className="text-muted-foreground">Tan-Tan, Morocco</p>
                   </div>
                 </div>
@@ -602,7 +598,7 @@ export default function Home() {
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.name")}</label>
+                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono">Name</label>
                   <Input 
                     type="text" 
                     id="name" 
@@ -615,7 +611,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.email")}</label>
+                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono">Email</label>
                   <Input 
                     type="email" 
                     id="email" 
@@ -628,7 +624,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.subject")}</label>
+                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono">Subject</label>
                   <Input 
                     type="text" 
                     id="subject" 
@@ -641,7 +637,7 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono">{t("contact.form.message")}</label>
+                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono">Message</label>
                   <Textarea 
                     id="message" 
                     name="message" 
@@ -658,7 +654,7 @@ export default function Home() {
                   className="bg-primary hover:bg-primary/80 text-background font-semibold w-full"
                   disabled={mutation.isPending}
                 >
-                  {mutation.isPending ? t("contact.form.sending") : t("contact.form.send")}
+                  {mutation.isPending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </motion.div>
