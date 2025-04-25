@@ -207,14 +207,16 @@ export default function MainLayout({ children }: MainLayoutProps) {
                 <a href="#projects" className="text-foreground/70 hover:text-primary transition-colors py-1">Projects</a>
                 <a href="#skills" className="text-foreground/70 hover:text-primary transition-colors py-1">Skills</a>
                 <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors py-1">Contact</a>
-                <a 
-                  href={cvPdf.path} 
-                  download={cvPdf.filename}
-                  onClick={handleDownloadCV}
-                  className="text-foreground/70 hover:text-primary transition-colors flex items-center py-1 ml-2 -mt-0.5"
-                >
-                  <Download className="h-4 w-4 mr-1" /> CV
-                </a>
+                <div className="flex justify-center">
+                  <a 
+                    href={cvPdf.path} 
+                    download={cvPdf.filename}
+                    onClick={handleDownloadCV}
+                    className="text-foreground/70 hover:text-primary transition-colors flex items-center py-1"
+                  >
+                    <Download className="h-4 w-4 mr-1" /> CV
+                  </a>
+                </div>
               </nav>
             </div>
             
