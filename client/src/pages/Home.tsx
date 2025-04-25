@@ -65,16 +65,15 @@ export default function Home() {
   
   // Handle CV download
   const handleDownloadCV = () => {
-    // Instead of using the complex dynamic import, let's use a direct URL
+    // Create a link element
     const link = document.createElement('a');
     
-    // Use direct path to the PDF
-    const pdfPath = '/attached_assets/SoufianeElQasemy CV.pdf';
+    // Use correct path to the PDF (now in the public folder)
+    const pdfPath = '/SoufianeElQasemy CV.pdf';
     
     // Set attributes
     link.href = pdfPath;
     link.download = 'SoufianeElQasemy-CV.pdf';
-    link.target = '_blank'; // Open in new tab if download doesn't start
     
     // Append to the document
     document.body.appendChild(link);
@@ -174,19 +173,19 @@ export default function Home() {
     {
       title: "Machine Learning Spam Detection",
       description: "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
-      image: "https://images.unsplash.com/photo-1562408590-e32931084e23?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Machine learning code image
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"]
     },
     {
       title: "RIP/OSPF Network Security",
       description: "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Network security image
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"]
     },
     {
       title: "Secure Cross-Platform Application",
       description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
-      image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1551651653-c5dcb914d809?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Mobile app development image
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
   ];
@@ -355,8 +354,8 @@ export default function Home() {
               <div className="flex justify-center">
                 <div className="relative rounded-lg overflow-hidden w-full max-w-md border border-black/30">
                   <img 
-                    src="https://images.unsplash.com/photo-1567808291548-fc3ee04dbcf0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Cybersecurity professional" 
+                    src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                    alt="Cybersecurity professional working with code" 
                     className="w-full h-80 object-cover" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
@@ -399,15 +398,9 @@ export default function Home() {
               <div className="flex space-x-4">
                 <Button 
                   className="bg-black hover:bg-black/80 text-foreground"
-                  asChild
+                  onClick={handleDownloadCV}
                 >
-                  <a 
-                    href="/attached_assets/SoufianeElQasemy CV.pdf" 
-                    download="SoufianeElQasemy-CV.pdf"
-                    target="_blank"
-                  >
-                    <Download className="mr-2 h-4 w-4" /> Download CV
-                  </a>
+                  <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
                 <div className="flex space-x-3">
                   <Button
