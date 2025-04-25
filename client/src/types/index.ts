@@ -26,10 +26,16 @@ export type Experience = {
 
 // Project type
 export type Project = {
+  id: string;
   title: string;
   description: string;
   image: string;
   technologies: string[];
+  detailedDescription?: string;
+  features?: string[];
+  challenges?: string[];
+  outcome?: string;
+  gallery?: string[];
 };
 
 // Skill type

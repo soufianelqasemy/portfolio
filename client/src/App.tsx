@@ -10,6 +10,8 @@ import { motion } from "framer-motion";
 
 // Lazy load the Admin component
 const AdminPage = React.lazy(() => import('./pages/Admin'));
+// Lazy load the ProjectDetail component
+const ProjectDetailPage = React.lazy(() => import('./pages/ProjectDetail'));
 
 function Router() {
   return (
@@ -18,6 +20,11 @@ function Router() {
       <Route path="/admin">
         <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading admin panel...</div>}>
           <AdminPage />
+        </Suspense>
+      </Route>
+      <Route path="/project/:id">
+        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading project details...</div>}>
+          <ProjectDetailPage />
         </Suspense>
       </Route>
       <Route component={NotFound} />

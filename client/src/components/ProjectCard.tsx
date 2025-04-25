@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
-import { Code } from "lucide-react";
+import { Code, ArrowRight } from "lucide-react";
 import { type Project } from "@/types";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 type ProjectCardProps = {
   project: Project;
@@ -42,7 +44,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <p className="text-foreground/80 text-sm sm:text-base mb-3 sm:mb-4 leading-relaxed flex-grow">
           {project.description}
         </p>
-        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
           {project.technologies.map((tech) => (
             <span
               key={tech}
@@ -52,6 +54,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </span>
           ))}
         </div>
+        
+        <Button 
+          className="mt-auto w-full bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30"
+          asChild
+        >
+          <Link href={`/project/${project.id}`}>
+            View Details <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
     </motion.div>
   );

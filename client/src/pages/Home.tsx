@@ -238,6 +238,7 @@ export default function Home() {
   // Projects data
   const projects = [
     {
+      id: "machine-learning-spam",
       title: "Machine Learning Spam Detection",
       description:
         "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
@@ -246,6 +247,7 @@ export default function Home() {
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"],
     },
     {
+      id: "rip-ospf-security",
       title: "RIP/OSPF Network Security",
       description:
         "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
@@ -254,6 +256,7 @@ export default function Home() {
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"],
     },
     {
+      id: "secure-cross-platform",
       title: "Secure Cross-Platform Application",
       description:
         "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
