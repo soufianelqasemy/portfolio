@@ -61,12 +61,12 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   // Navigation links
   const navLinks = [
-    { href: "#about", label: "About" },
-    { href: "#education", label: "Education" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" }
+    { href: "/#about", label: "About" },
+    { href: "/#education", label: "Education" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#projects", label: "Projects" },
+    { href: "/#skills", label: "Skills" },
+    { href: "/#contact", label: "Contact" }
   ];
 
   return (
@@ -75,7 +75,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       <nav className="fixed w-full z-20 bg-black/90 backdrop-blur-sm">
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between">
-            <a href="#home" className="text-xl font-mono font-bold text-primary">
+            <a href="/" className="text-xl font-mono font-bold text-primary">
               <span className="text-foreground">&lt;</span>S.ElQasemy
               <span className="text-foreground">/&gt;</span>
             </a>
@@ -149,7 +149,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* About - Simplified for mobile */}
             <div className="text-center md:text-left">
-              <a href="#home" className="text-xl font-mono font-bold text-primary mb-3 inline-block">
+              <a href="/" className="text-xl font-mono font-bold text-primary mb-3 inline-block">
                 <span className="text-foreground">&lt;</span>S.ElQasemy
                 <span className="text-foreground">/&gt;</span>
               </a>
@@ -200,13 +200,13 @@ export default function MainLayout({ children }: MainLayoutProps) {
             <div className="text-center md:text-left mt-6 md:mt-0">
               <h3 className="text-lg font-mono font-bold mb-4 text-primary">Quick Links</h3>
               <nav className="grid grid-cols-2 gap-y-3 gap-x-4">
-                <a href="#home" className="text-foreground/70 hover:text-primary transition-colors py-1">Home</a>
-                <a href="#about" className="text-foreground/70 hover:text-primary transition-colors py-1">About</a>
-                <a href="#education" className="text-foreground/70 hover:text-primary transition-colors py-1">Education</a>
-                <a href="#experience" className="text-foreground/70 hover:text-primary transition-colors py-1">Experience</a>
-                <a href="#projects" className="text-foreground/70 hover:text-primary transition-colors py-1">Projects</a>
-                <a href="#skills" className="text-foreground/70 hover:text-primary transition-colors py-1">Skills</a>
-                <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors py-1">Contact</a>
+                <a href="/" className="text-foreground/70 hover:text-primary transition-colors py-1">Home</a>
+                <a href="/#about" className="text-foreground/70 hover:text-primary transition-colors py-1">About</a>
+                <a href="/#education" className="text-foreground/70 hover:text-primary transition-colors py-1">Education</a>
+                <a href="/#experience" className="text-foreground/70 hover:text-primary transition-colors py-1">Experience</a>
+                <a href="/#projects" className="text-foreground/70 hover:text-primary transition-colors py-1">Projects</a>
+                <a href="/#skills" className="text-foreground/70 hover:text-primary transition-colors py-1">Skills</a>
+                <a href="/#contact" className="text-foreground/70 hover:text-primary transition-colors py-1">Contact</a>
                 <a 
                   href={cvPdf.path} 
                   download={cvPdf.filename}
@@ -246,7 +246,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
             {/* Back to Top Button - Only on mobile */}
             <div className="flex justify-center mb-4 md:hidden">
               <a
-                href="#home"
+                href="/#home"
                 className="bg-primary/80 hover:bg-primary text-background w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 mx-auto"
                 aria-label="Back to top"
               >
@@ -265,7 +265,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       <AnimatePresence>
         {showBackToTop && (
           <motion.a
-            href="#home"
+            href="/#home"
             className="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-background w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 hidden md:flex"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
