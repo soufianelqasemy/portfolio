@@ -185,7 +185,7 @@ export default function Home() {
     {
       title: "Secure Cross-Platform Application",
       description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
-      image: "https://images.unsplash.com/photo-1551651653-c5dcb914d809?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Mobile app development image
+      image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Better cross-platform app image
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
   ];
@@ -355,27 +355,16 @@ export default function Home() {
                 Cybersecurity Engineer &amp; Developer
               </h3>
               <p className="text-foreground/80 mb-6 leading-relaxed">
-                Born on February 5, 2004, I am a passionate Cybersecurity Engineer with expertise in network security, application development, and machine learning for cybersecurity applications.
+                I am a passionate Cybersecurity Engineer specializing in network security, application development, and machine learning. My technical focus includes designing secure network architectures with RIP/OSPF protocols, creating cross-platform applications with Spring Boot and Flutter, and implementing ML models for threat detection.
               </p>
-              <p className="text-foreground/80 mb-6 leading-relaxed">
-                My technical focus includes securing networks with RIP/OSPF protocols, developing cross-platform applications with Spring Boot and Flutter, and implementing machine learning models for security threat detection.
-              </p>
-              <div className="grid grid-cols-1 gap-6 mb-8">
-                <div className="flex items-center email-container max-w-full">
-                  <Mail className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="email-text block w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-center">
-                  <Phone className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="contact-text">+212 646937382</span>
+                  <Calendar className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
+                  <span className="date-format">Born: February 5, 2004</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span>Tan-Tan, Morocco</span>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="date-format">05 Feb 2004</span>
+                  <span>Located in Tan-Tan, Morocco</span>
                 </div>
               </div>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
