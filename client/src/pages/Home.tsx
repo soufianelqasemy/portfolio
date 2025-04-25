@@ -173,19 +173,19 @@ export default function Home() {
     {
       title: "Machine Learning Spam Detection",
       description: "Developed and integrated a machine learning model for spam detection, enhancing cybersecurity measures and filtering capabilities.",
-      image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Machine learning code image
       technologies: ["Python", "scikit-learn", "pandas", "Jupyter"]
     },
     {
       title: "RIP/OSPF Network Security",
       description: "Enhanced network security by implementing DMAC authentication and OpenSSL encryption to protect data exchanges in a RIP/OSPF environment.",
-      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Network security image
       technologies: ["GNS3", "Cisco Packet Tracer", "OpenSSL"]
     },
     {
       title: "Secure Cross-Platform Application",
       description: "Created a multi-platform application (iOS, Android, Web) for project management, using Spring Boot for backend, Flutter for frontend, and Spring Security for authentication.",
-      image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+      image: "https://images.unsplash.com/photo-1551651653-c5dcb914d809?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80", // Mobile app development image
       technologies: ["Spring Boot", "Flutter", "Spring Security", "PostgreSQL"]
     }
   ];
@@ -344,28 +344,11 @@ export default function Home() {
             About Me
             <span className="text-primary">/&gt;</span>
           </motion.h2>
-          <div className="flex flex-col md:flex-row items-center">
+          <div className="max-w-3xl mx-auto">
             <motion.div 
-              className="md:w-1/2 mb-10 md:mb-0"
-              initial={{ opacity: 0, x: -20 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <div className="flex justify-center">
-                <div className="relative rounded-lg overflow-hidden w-full max-w-md border border-black/30">
-                  <img 
-                    src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Cybersecurity professional working with code" 
-                    className="w-full h-80 object-cover" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                </div>
-              </div>
-            </motion.div>
-            <motion.div 
-              className="md:w-1/2 md:pl-12"
-              initial={{ opacity: 0, x: 20 }}
-              animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
+              className="w-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <h3 className="text-2xl font-mono font-bold mb-6 gradient-text">
@@ -395,14 +378,14 @@ export default function Home() {
                   <span className="date-format">05 Feb 2004</span>
                 </div>
               </div>
-              <div className="flex space-x-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <Button 
-                  className="bg-black hover:bg-black/80 text-foreground"
+                  className="bg-black hover:bg-black/80 text-foreground w-full sm:w-auto"
                   onClick={handleDownloadCV}
                 >
                   <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
-                <div className="flex space-x-3">
+                <div className="flex space-x-4 mt-4 sm:mt-0">
                   <Button
                     variant="outline"
                     size="icon"
