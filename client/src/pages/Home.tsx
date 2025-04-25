@@ -575,8 +575,8 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Social Media Links - Centered on mobile */}
-              <div className="flex justify-center mt-8 space-x-6">
+              {/* Social Media Links - Stacked vertically on mobile */}
+              <div className="flex flex-col md:flex-row items-center justify-center mt-8 space-y-4 md:space-y-0 md:space-x-6">
                 <a 
                   href="https://www.linkedin.com/in/soufiane-e-706261287/" 
                   target="_blank" 
