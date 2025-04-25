@@ -575,31 +575,31 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Social Media Links - Better touch targets */}
-              <div className="flex justify-center md:justify-start mt-8 space-x-6">
+              {/* Social Media Links - Centered on mobile */}
+              <div className="flex justify-center mt-8 space-x-6">
                 <a 
                   href="https://www.linkedin.com/in/soufiane-e-706261287/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-6 w-6" />
                 </a>
                 <a 
                   href="https://github.com/soufianelqasemy" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                 >
-                  <Github className="h-5 w-5" />
+                  <Github className="h-6 w-6" />
                 </a>
                 <a 
                   href="https://x.com/QasemySouf9438" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                  className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                 >
-                  <Twitter className="h-5 w-5" />
+                  <Twitter className="h-6 w-6" />
                 </a>
               </div>
             </motion.div>
