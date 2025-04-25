@@ -156,7 +156,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <p className="text-foreground/70 mb-4 max-w-md mx-auto md:mx-0 text-sm md:text-base">
                 Cybersecurity Engineer with expertise in network security, application development, and machine learning.
               </p>
-              <div className="flex space-x-6 justify-center md:justify-start">
+              <div className="flex gap-4 justify-center md:justify-start">
                 <a 
                   href="https://www.linkedin.com/in/soufiane-e-706261287/" 
                   target="_blank"

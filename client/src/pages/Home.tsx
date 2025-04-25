@@ -393,7 +393,7 @@ export default function Home() {
                 >
                   <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
-                <div className="flex space-x-6 mt-4 sm:mt-0">
+                <div className="flex items-center gap-4 mt-4 sm:mt-0">
                   <Button
                     variant="outline"
                     size="icon"
@@ -575,8 +575,8 @@ export default function Home() {
                 </div>
               </div>
               
-              {/* Social Media Links - Stacked with consistent spacing */}
-              <div className="flex flex-row md:flex-row items-center justify-center mt-8 space-x-6 md:space-x-6">
+              {/* Social Media Links - With consistent spacing */}
+              <div className="flex items-center justify-center mt-8 gap-4">
                 <a 
                   href="https://www.linkedin.com/in/soufiane-e-706261287/" 
                   target="_blank" 
