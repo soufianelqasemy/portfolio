@@ -332,8 +332,9 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-black" ref={aboutRef}>
-        <div className="container mx-auto px-4">
+      <section id="about" className="py-20 bg-black relative overflow-hidden" ref={aboutRef}>
+        <div className="absolute inset-0 bg-gradient-radial from-primary/5 to-transparent opacity-30"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <motion.h2 
             className="text-3xl font-mono font-bold mb-16 text-center"
             initial={{ opacity: 0, y: 20 }}
@@ -344,65 +345,65 @@ export default function Home() {
             About Me
             <span className="text-primary">/&gt;</span>
           </motion.h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto backdrop-blur-sm bg-black/40 p-8 rounded-xl border border-primary/10 shadow-glow">
             <motion.div 
               className="w-full"
               initial={{ opacity: 0, y: 20 }}
               animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <h3 className="text-2xl font-mono font-bold mb-6 gradient-text">
-                Cybersecurity Engineer &amp; Developer
+              <h3 className="text-2xl font-mono font-bold mb-6 text-center">
+                <span className="gradient-text">Cybersecurity Engineer &amp; Developer</span>
               </h3>
-              <p className="text-foreground/80 mb-6 leading-relaxed">
+              <p className="text-foreground/90 mb-8 leading-relaxed text-center">
                 I am a passionate Cybersecurity Engineer specializing in network security, application development, and machine learning. My technical focus includes designing secure network architectures with RIP/OSPF protocols, creating cross-platform applications with Spring Boot and Flutter, and implementing ML models for threat detection.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="flex items-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <div className="flex items-center justify-center md:justify-start p-3 rounded-lg bg-black/30 backdrop-blur-sm">
                   <Calendar className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span className="date-format">Born: February 5, 2004</span>
+                  <span className="date-format font-semibold">Born: February 5, 2004</span>
                 </div>
-                <div className="flex items-center">
+                <div className="flex items-center justify-center md:justify-start p-3 rounded-lg bg-black/30 backdrop-blur-sm">
                   <MapPin className="text-primary mr-3 h-5 w-5 flex-shrink-0" />
-                  <span>Located in Tan-Tan, Morocco</span>
+                  <span className="font-semibold">Located in Tan-Tan, Morocco</span>
                 </div>
               </div>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-2">
                 <Button 
-                  className="bg-black hover:bg-black/80 text-foreground w-full sm:w-auto"
+                  className="bg-primary hover:bg-primary/80 text-background w-full sm:w-auto font-semibold shadow-glow px-6 py-2.5"
                   onClick={handleDownloadCV}
                 >
                   <Download className="mr-2 h-4 w-4" /> Download CV
                 </Button>
-                <div className="flex space-x-4 mt-4 sm:mt-0">
+                <div className="flex space-x-6 mt-4 sm:mt-0">
                   <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
+                    className="rounded-full bg-black/20 hover:bg-primary/20 text-primary border border-primary/50 w-11 h-11 shadow-glow-sm"
                     asChild
                   >
                     <a href="https://www.linkedin.com/in/soufiane-e-706261287/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                      <Linkedin className="h-4 w-4" />
+                      <Linkedin className="h-5 w-5" />
                     </a>
                   </Button>
                   <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
+                    className="rounded-full bg-black/20 hover:bg-primary/20 text-primary border border-primary/50 w-11 h-11 shadow-glow-sm"
                     asChild
                   >
                     <a href="https://github.com/soufianelqasemy" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                      <Github className="h-4 w-4" />
+                      <Github className="h-5 w-5" />
                     </a>
                   </Button>
                   <Button
                     variant="outline"
                     size="icon"
-                    className="rounded-full bg-transparent hover:bg-primary/10 text-primary border border-primary w-10 h-10"
+                    className="rounded-full bg-black/20 hover:bg-primary/20 text-primary border border-primary/50 w-11 h-11 shadow-glow-sm"
                     asChild
                   >
                     <a href="https://x.com/QasemySouf9438" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                      <Twitter className="h-4 w-4" />
+                      <Twitter className="h-5 w-5" />
                     </a>
                   </Button>
                 </div>

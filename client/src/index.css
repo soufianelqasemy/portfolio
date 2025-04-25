@@ -190,3 +190,17 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+
+/* Additional glow effects */
+.shadow-glow {
+  box-shadow: 0 0 20px rgba(13, 194, 155, 0.25);
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 10px rgba(13, 194, 155, 0.2);
+}
+
+/* Radial gradient background */
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
