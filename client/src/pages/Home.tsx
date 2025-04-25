@@ -517,11 +517,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 bg-black/30" ref={contactRef}>
+      {/* Contact Section - Mobile Optimized */}
+      <section id="contact" className="py-12 md:py-20 bg-black/30" ref={contactRef}>
         <div className="container mx-auto px-4">
           <motion.h2 
-            className="text-3xl font-mono font-bold mb-16 text-center"
+            className="text-2xl md:text-3xl font-mono font-bold mb-8 md:mb-16 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.5 }}
@@ -531,47 +531,76 @@ export default function Home() {
             <span className="text-primary">/&gt;</span>
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
               transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-black/40 backdrop-blur-sm rounded-xl border border-primary/10 p-6 md:p-8 shadow-glow-sm"
             >
-              <h3 className="text-xl font-mono font-bold mb-6 text-primary">Get In Touch</h3>
-              <p className="text-foreground/80 mb-8 leading-relaxed">
+              <h3 className="text-xl font-mono font-bold mb-4 md:mb-6 text-primary text-center md:text-left">Get In Touch</h3>
+              <p className="text-foreground/80 mb-6 md:mb-8 leading-relaxed text-sm md:text-base text-center md:text-left">
                 Feel free to contact me for any project, collaboration, or opportunity. I am always open to discussing new projects, creative ideas or opportunities to be part of your vision.
               </p>
               
               <div className="space-y-6">
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4">
                     <Mail className="text-primary h-5 w-5" />
                   </div>
-                  <div className="overflow-hidden w-full email-container">
+                  <div className="overflow-hidden w-full email-container text-center md:text-left">
                     <h4 className="font-mono font-bold text-foreground mb-1">Email</h4>
-                    <p className="text-muted-foreground email-text w-full">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
+                    <p className="text-muted-foreground email-text w-full text-xs md:text-sm">soufiane.elqasemy.45@edu.uiz.ac.ma</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4">
                     <Phone className="text-primary h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="text-center md:text-left">
                     <h4 className="font-mono font-bold text-foreground mb-1">Phone</h4>
-                    <p className="text-muted-foreground contact-text">+212 646937382</p>
+                    <p className="text-muted-foreground contact-text text-sm md:text-base">+212 646937382</p>
                   </div>
                 </div>
                 
-                <div className="flex items-start">
-                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                <div className="flex flex-col md:flex-row items-center md:items-start">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-3 md:mb-0 md:mr-4">
                     <MapPin className="text-primary h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="text-center md:text-left">
                     <h4 className="font-mono font-bold text-foreground mb-1">Location</h4>
-                    <p className="text-muted-foreground">Tan-Tan, Morocco</p>
+                    <p className="text-muted-foreground text-sm md:text-base">Tan-Tan, Morocco</p>
                   </div>
                 </div>
+              </div>
+              
+              {/* Social Media Links - Better touch targets */}
+              <div className="flex justify-center md:justify-start mt-8 space-x-6">
+                <a 
+                  href="https://www.linkedin.com/in/soufiane-e-706261287/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://github.com/soufianelqasemy" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                >
+                  <Github className="h-5 w-5" />
+                </a>
+                <a 
+                  href="https://x.com/QasemySouf9438" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
+                >
+                  <Twitter className="h-5 w-5" />
+                </a>
               </div>
             </motion.div>
             
@@ -579,15 +608,16 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }}
               animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }}
               transition={{ duration: 0.5, delay: 0.3 }}
+              className="mt-4 md:mt-0"
             >
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5 bg-black/40 backdrop-blur-sm rounded-xl border border-primary/10 p-6 md:p-8 shadow-glow-sm">
                 <div>
-                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono">Name</label>
+                  <label htmlFor="name" className="block text-foreground/80 mb-2 font-mono text-sm md:text-base">Name</label>
                   <Input 
                     type="text" 
                     id="name" 
                     name="name" 
-                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary"
+                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary h-12 touch-target"
                     value={formData.name}
                     onChange={handleInputChange}
                     required
@@ -595,12 +625,12 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono">Email</label>
+                  <label htmlFor="email" className="block text-foreground/80 mb-2 font-mono text-sm md:text-base">Email</label>
                   <Input 
                     type="email" 
                     id="email" 
                     name="email" 
-                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary"
+                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary h-12 touch-target"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
@@ -608,12 +638,12 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono">Subject</label>
+                  <label htmlFor="subject" className="block text-foreground/80 mb-2 font-mono text-sm md:text-base">Subject</label>
                   <Input 
                     type="text" 
                     id="subject" 
                     name="subject" 
-                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary"
+                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary h-12 touch-target"
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
@@ -621,12 +651,12 @@ export default function Home() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono">Message</label>
+                  <label htmlFor="message" className="block text-foreground/80 mb-2 font-mono text-sm md:text-base">Message</label>
                   <Textarea 
                     id="message" 
                     name="message" 
-                    rows={5} 
-                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary"
+                    rows={4} 
+                    className="w-full bg-black/50 border border-primary/30 text-foreground rounded-md focus:border-primary touch-target py-3"
                     value={formData.message}
                     onChange={handleInputChange}
                     required
@@ -635,7 +665,7 @@ export default function Home() {
                 
                 <Button 
                   type="submit" 
-                  className="bg-primary hover:bg-primary/80 text-background font-semibold w-full"
+                  className="bg-primary hover:bg-primary/80 text-background font-semibold w-full h-14 mt-2 text-base"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
