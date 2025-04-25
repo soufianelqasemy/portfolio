@@ -211,7 +211,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
                   href={cvPdf.path} 
                   download={cvPdf.filename}
                   onClick={handleDownloadCV}
-                  className="text-foreground/70 hover:text-primary transition-colors flex items-center py-1"
+                  className="text-foreground/70 hover:text-primary transition-colors flex items-center py-1 ml-2 -mt-0.5"
                 >
                   <Download className="h-4 w-4 mr-1" /> CV
                 </a>
@@ -242,20 +242,31 @@ export default function MainLayout({ children }: MainLayoutProps) {
             </div>
           </div>
           
-          <div className="border-t border-foreground/10 mt-8 pt-6 text-center">
+          <div className="border-t border-foreground/10 mt-8 pt-6 text-center relative">
+            {/* Back to Top Button - Moved above copyright */}
+            <div className="flex justify-center mb-4">
+              <a
+                href="#home"
+                className="bg-primary/80 hover:bg-primary text-background w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110 mx-auto"
+                aria-label="Back to top"
+              >
+                <ChevronUp className="h-5 w-5" />
+              </a>
+            </div>
+            
             <p className="text-sm text-foreground/50">
               &copy; {currentYear} Soufiane El Qasemy. All rights reserved.
             </p>
           </div>
         </div>
       </footer>
-
-      {/* Back to Top Button */}
+      
+      {/* Fixed Back to Top Button for desktop only */}
       <AnimatePresence>
         {showBackToTop && (
           <motion.a
             href="#home"
-            className="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-background w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:scale-110"
+            className="fixed bottom-6 right-6 bg-primary/80 hover:bg-primary text-background w-12 h-12 rounded-full md:flex items-center justify-center shadow-lg transition-all transform hover:scale-110 hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
