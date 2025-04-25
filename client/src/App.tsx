@@ -22,7 +22,7 @@ function Router() {
           <AdminPage />
         </Suspense>
       </Route>
-      <Route path="/project/:id">
+      <Route path="/projects/:id">
         <Suspense fallback={<div className="h-screen w-full flex items-center justify-center">Loading project details...</div>}>
           <ProjectDetailPage />
         </Suspense>

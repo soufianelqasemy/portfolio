@@ -59,7 +59,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           className="mt-auto w-full bg-primary/20 hover:bg-primary/40 text-primary border border-primary/30"
           asChild
         >
-          <Link href={`/project/${project.id}`}>
+          <Link href={`/projects/${project.id}`}>
             View Details <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
