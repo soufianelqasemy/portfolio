@@ -1,6 +1,6 @@
 import { users, type User, type InsertUser, contactMessages, type ContactMessage, type InsertContactMessage } from "@shared/schema";
 import { db } from "./db";
-import { eq } from "drizzle-orm";
+import { eq, desc } from "drizzle-orm";
 
 // Interface for storage operations
 export interface IStorage {
@@ -8,6 +8,7 @@ export interface IStorage {
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
   createContactMessage(message: InsertContactMessage): Promise<ContactMessage>;
+  getAllContactMessages(): Promise<ContactMessage[]>;
 }
 
 // Database implementation of storage interface
@@ -30,6 +31,11 @@ export class DatabaseStorage implements IStorage {
   async createContactMessage(message: InsertContactMessage): Promise<ContactMessage> {
     const result = await db.insert(contactMessages).values(message).returning();
     return result[0];
+  }
+  
+  async getAllContactMessages(): Promise<ContactMessage[]> {
+    const result = await db.select().from(contactMessages);
+    return result;
   }
 }
 

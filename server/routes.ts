@@ -8,6 +8,16 @@ import { sendContactNotification, sendAutoReply } from "./email";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // API endpoints
+  // Get all contact messages
+  app.get("/api/contact", async (_req, res) => {
+    try {
+      const messages = await storage.getAllContactMessages();
+      res.status(200).json(messages);
+    } catch (error) {
+      console.error("Error fetching contact messages:", error);
+      res.status(500).json({ message: "Failed to fetch contact messages" });
+    }
+  });
   app.post("/api/contact", async (req, res) => {
     try {
       // Validate the request body using the contactMessageSchema
