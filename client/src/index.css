@@ -212,23 +212,97 @@ html {
 
 /* Mobile optimizations */
 @media (max-width: 640px) {
-  .mobile-stack {
-    @apply flex-col;
+  /* Layout optimizations for better mobile experience */
+  section {
+    @apply py-10 !important;
   }
   
-  .mobile-center {
-    @apply text-center;
+  .section-padding {
+    @apply py-10 !important;
   }
   
-  .mobile-full-width {
-    @apply w-full;
+  /* Fix stacking on mobile */
+  .flex-col-mobile {
+    @apply flex-col !important;
   }
   
-  .mobile-p-4 {
-    @apply p-4;
+  /* Fix text sizing on mobile */
+  .text-sm-mobile {
+    @apply text-sm !important;
   }
   
-  .mobile-text-base {
-    @apply text-base;
+  .text-base-mobile {
+    @apply text-base !important;
+  }
+  
+  .text-lg-mobile {
+    @apply text-lg !important;
+  }
+  
+  /* Fix padding and spacing on mobile */
+  .p-4-mobile {
+    @apply p-4 !important;
+  }
+  
+  .px-4-mobile {
+    @apply px-4 !important;
+  }
+  
+  .py-4-mobile {
+    @apply py-4 !important;
+  }
+  
+  .gap-4-mobile {
+    @apply gap-4 !important;
+  }
+  
+  /* Improve visibility on mobile */
+  .text-center-mobile {
+    @apply text-center !important;
+  }
+  
+  /* Make elements fit better on small screens */
+  .w-full-mobile {
+    @apply w-full !important;
+  }
+  
+  .m-auto-mobile {
+    @apply mx-auto !important;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .reduced-motion {
+    animation-duration: 0.5s !important;
+    transition-duration: 0.3s !important;
+  }
+  
+  /* Improve touch targets on mobile */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px] !important;
+  }
+  
+  /* Improve card layouts on mobile */
+  .card-mobile {
+    @apply flex-col rounded-lg overflow-hidden w-full !important;
+  }
+  
+  /* Hide certain elements on mobile to reduce clutter */
+  .hide-on-mobile {
+    @apply hidden !important;
+  }
+  
+  /* Show only on mobile */
+  .show-on-mobile {
+    @apply block !important;
+  }
+  
+  /* Better spacing for mobile forms */
+  input, textarea, button {
+    @apply py-3 px-4 text-base !important;
+  }
+  
+  /* Fix hero section on mobile */
+  .hero-section {
+    @apply min-h-[100svh] !important;
   }
 }

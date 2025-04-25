@@ -100,7 +100,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
           </div>
         </div>
         
-        {/* Mobile menu */}
+        {/* Mobile menu - improved for better touch targets and visibility */}
         <AnimatePresence>
           {mobileMenuOpen && (
             <motion.div
@@ -108,19 +108,30 @@ export default function MainLayout({ children }: MainLayoutProps) {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden bg-black/95 backdrop-blur-sm overflow-hidden"
+              className="md:hidden bg-black/95 backdrop-blur-sm overflow-hidden border-b border-primary/10"
             >
-              <div className="container mx-auto px-4 py-2 flex flex-col space-y-3">
+              <div className="container mx-auto px-4 py-3 flex flex-col space-y-1">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={closeMobileMenu}
-                    className="text-foreground hover:text-primary py-2 transition-colors"
+                    className="text-foreground hover:text-primary py-3 px-2 transition-colors rounded-md flex items-center justify-center text-lg font-medium touch-target active:bg-primary/10"
                   >
                     {link.label}
                   </a>
                 ))}
+                <a 
+                  href={cvPdf.path} 
+                  download={cvPdf.filename}
+                  onClick={() => {
+                    handleDownloadCV();
+                    closeMobileMenu();
+                  }}
+                  className="text-foreground hover:text-primary py-3 px-2 transition-colors rounded-md flex items-center justify-center text-lg font-medium mt-2 touch-target active:bg-primary/10"
+                >
+                  <Download className="h-4 w-4 mr-2" /> Download CV
+                </a>
               </div>
             </motion.div>
           )}
@@ -132,102 +143,106 @@ export default function MainLayout({ children }: MainLayoutProps) {
         {children}
       </main>
 
-      {/* Footer */}
-      <footer className="bg-black py-12 w-full">
+      {/* Footer - Optimized for mobile */}
+      <footer className="bg-black py-8 md:py-12 w-full">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* About */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* About - Simplified for mobile */}
             <div className="text-center md:text-left">
               <a href="#home" className="text-xl font-mono font-bold text-primary mb-3 inline-block">
                 <span className="text-foreground">&lt;</span>S.ElQasemy
                 <span className="text-foreground">/&gt;</span>
               </a>
-              <p className="text-foreground/70 mb-4 max-w-md mx-auto md:mx-0">
-                Cybersecurity Engineer with expertise in network security, application development, and machine learning for cybersecurity applications.
+              <p className="text-foreground/70 mb-4 max-w-md mx-auto md:mx-0 text-sm md:text-base">
+                Cybersecurity Engineer with expertise in network security, application development, and machine learning.
               </p>
-              <div className="flex space-x-4 justify-center md:justify-start">
+              <div className="flex space-x-6 justify-center md:justify-start">
                 <a 
                   href="https://www.linkedin.com/in/soufiane-e-706261287/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="h-4 w-4" />
+                  <Linkedin className="h-5 w-5" />
                 </a>
                 <a 
                   href="https://github.com/soufianelqasemy" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                   aria-label="GitHub"
                 >
-                  <Github className="h-4 w-4" />
+                  <Github className="h-5 w-5" />
                 </a>
                 <a 
                   href="https://x.com/QasemySouf9438" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                   aria-label="Twitter"
                 >
-                  <Twitter className="h-4 w-4" />
+                  <Twitter className="h-5 w-5" />
                 </a>
                 <a 
                   href="https://www.instagram.com/soufiane04elq" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors"
+                  className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary hover:bg-primary/20 transition-colors touch-target"
                   aria-label="Instagram"
                 >
-                  <Instagram className="h-4 w-4" />
+                  <Instagram className="h-5 w-5" />
                 </a>
               </div>
             </div>
             
-            {/* Quick Links */}
-            <div className="text-center md:text-left">
+            {/* Quick Links - Better touch targets for mobile */}
+            <div className="text-center md:text-left mt-6 md:mt-0">
               <h3 className="text-lg font-mono font-bold mb-4 text-primary">Quick Links</h3>
-              <nav className="grid grid-cols-2 gap-x-4 gap-y-2">
-                <a href="#home" className="text-foreground/70 hover:text-primary transition-colors">Home</a>
-                <a href="#about" className="text-foreground/70 hover:text-primary transition-colors">About</a>
-                <a href="#education" className="text-foreground/70 hover:text-primary transition-colors">Education</a>
-                <a href="#experience" className="text-foreground/70 hover:text-primary transition-colors">Experience</a>
-                <a href="#projects" className="text-foreground/70 hover:text-primary transition-colors">Projects</a>
-                <a href="#skills" className="text-foreground/70 hover:text-primary transition-colors">Skills</a>
-                <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors">Contact</a>
+              <nav className="grid grid-cols-2 gap-y-3 gap-x-4">
+                <a href="#home" className="text-foreground/70 hover:text-primary transition-colors py-1">Home</a>
+                <a href="#about" className="text-foreground/70 hover:text-primary transition-colors py-1">About</a>
+                <a href="#education" className="text-foreground/70 hover:text-primary transition-colors py-1">Education</a>
+                <a href="#experience" className="text-foreground/70 hover:text-primary transition-colors py-1">Experience</a>
+                <a href="#projects" className="text-foreground/70 hover:text-primary transition-colors py-1">Projects</a>
+                <a href="#skills" className="text-foreground/70 hover:text-primary transition-colors py-1">Skills</a>
+                <a href="#contact" className="text-foreground/70 hover:text-primary transition-colors py-1">Contact</a>
                 <a 
                   href={cvPdf.path} 
                   download={cvPdf.filename}
                   onClick={handleDownloadCV}
-                  className="text-foreground/70 hover:text-primary transition-colors flex items-center"
+                  className="text-foreground/70 hover:text-primary transition-colors flex items-center py-1"
                 >
-                  <Download className="h-3 w-3 mr-1" /> CV
+                  <Download className="h-4 w-4 mr-1" /> CV
                 </a>
               </nav>
             </div>
             
-            {/* Contact Info */}
-            <div className="text-center md:text-left">
+            {/* Contact Info - Optimized for mobile */}
+            <div className="text-center md:text-left mt-6 md:mt-0">
               <h3 className="text-lg font-mono font-bold mb-4 text-primary">Contact Info</h3>
-              <div className="space-y-3 max-w-md mx-auto md:mx-0">
-                <div className="flex items-center justify-center md:justify-start">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
-                    <Mail className="text-primary h-4 w-4" />
+              <div className="space-y-4 max-w-md mx-auto md:mx-0">
+                <div className="flex flex-col md:flex-row md:items-center justify-center md:justify-start">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto md:mx-0 md:mr-3 mb-2 md:mb-0">
+                    <Mail className="text-primary h-5 w-5" />
                   </div>
-                  <span className="text-foreground/70 email-text break-all">soufiane.elqasemy.45@edu.uiz.ac.ma</span>
+                  <span className="text-foreground/70 text-sm md:text-base break-all">
+                    soufiane.elqasemy.45@edu.uiz.ac.ma
+                  </span>
                 </div>
-                <div className="flex items-center justify-center md:justify-start">
-                  <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-3">
-                    <Phone className="text-primary h-4 w-4" />
+                <div className="flex flex-col md:flex-row md:items-center justify-center md:justify-start">
+                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center mx-auto md:mx-0 md:mr-3 mb-2 md:mb-0">
+                    <Phone className="text-primary h-5 w-5" />
                   </div>
-                  <span className="text-foreground/70">+212 646937382</span>
+                  <span className="text-foreground/70 text-sm md:text-base">
+                    +212 646937382
+                  </span>
                 </div>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-foreground/10 mt-10 pt-6 text-center">
+          <div className="border-t border-foreground/10 mt-8 pt-6 text-center">
             <p className="text-sm text-foreground/50">
               &copy; {currentYear} Soufiane El Qasemy. All rights reserved.
             </p>
