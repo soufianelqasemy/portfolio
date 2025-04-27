@@ -91,10 +91,10 @@ Want to run this locally? Here's how:
 
 I'm always improving! Here's what's coming:
 
-- [ ] Blog section to share my thoughts.
-- [ ] More interactive elements.
-- [ ] Enhanced project filtering.
-- [ ] Improved admin features.
+-  Blog section to share my thoughts.
+-  More interactive elements.
+-  Enhanced project filtering.
+-  Improved admin features.
 
 ---
 
